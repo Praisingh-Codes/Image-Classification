@@ -1,0 +1,3 @@
+https://www.kaggle.com/datasets/billbasener/happy-sad-images
+
+https://www.kaggle.com/datasets/bhavikjikadara/dog-and-cat-classification-dataset
