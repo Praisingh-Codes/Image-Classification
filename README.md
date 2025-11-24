@@ -1,88 +1,123 @@
-
-## <div align="justify"> Title - Intelligent Image Classification System with Deep Learning </div>
-
-##  Introduction
-
-<div align="justify">
-Image classification is a core task in computer vision that enables systems to automatically identify and categorize objects in images. Traditional approaches often struggle with scalability, feature generalization, and performance on diverse datasets. To address these challenges, this project introduces an intelligent image classification system powered by deep learning. Leveraging Convolutional Neural Networks (CNNs) and transfer learning (MobileNetV2), the system efficiently extracts hierarchical visual features, enabling robust classification of large and complex image datasets. The framework is equipped with a Gradio-powered user interface, allowing users to upload images, interactively classify them, and visualize predictions with confidence scores. This project demonstrates the potential of modern deep learning pipelines in building accurate, scalable, and user-friendly image classification applications.
-</div>
-
-##  Structure 
-
-├── dataset/  # Training & testing image dataset (organized by class folders)   
-
-├── image_classification_code.ipynb  # Main Jupyter notebook with code & UI
-
-├── requirement.txt # Required Python libraries for the project
-
-## Setup Instructions
-
-1. Clone the Repository
-
-    Terminal - Command - Git Clone 
-
-    https://github.com/Praisingh-Codes/Image-Classification.git
-
-    cd Image-Classification
+## <div align="justify">Intelligent Image Classification System with Deep Learning </div>
 
 
-2. Create Virtual Environment
-
-   Terminal - Command
-   
-   python -m venv venv
-
-   (On Linux/Mac: source venv/bin/activate)
-   
-   (On Windows: venv\Scripts\activate)
+<div align="justify">A scalable deep-learning solution for categorizing images into two defined classes using both custom CNNs and transfer-learning models. The system provides organized training workflows, data processing steps, model benchmarking, comparison plots, preserved model artifacts, and a user-friendly Gradio interface for efficient real-time predictions.</div>
 
 
-3. Install Dependencies
-   
-   Terminal - Command
-    
-   pip install -r requirements.txt
+#### Features
+
+✔️ Multi-architecture training (Baseline CNN, Deep CNN, MobileNetV2)
+
+✔️ Transfer learning for improved performance
+
+✔️ Metrics stored in JSON for easy comparison
+
+✔️ Accuracy & F1 visual charts
+
+✔️ Gradio web interface for real-time predictions
+
+✔️ Organized folder structure with saved models and sample images
 
 
-4. Prepare Dataset
+#### Project Structure
 
-   Organize your dataset into subfolders, one per class:
+Image Classification/
 
-   dataset/
+├── data/                     # Dataset source link
 
-      ├── class_1/
-            ├── img1.jpg
-            ├── img2.jpg
-            ...
+├── plots/                    # Accuracy & F1 comparison charts
 
-      ├── class_2/
-            ├── img3.jpg
-            ├── img4.jpg
-            ...
+├── saved_models/             # Trained model files (.keras)
+
+├── image_classification_code.ipynb   # Full training & inference notebook
+
+├── metrics_summary.json              # Evaluation metrics for all models
+
+└── requirement.txt                   # Dependencies
+
+#### Model Performance Summary
+
+| Model         | Accuracy | F1 Score |
+|---------------|----------|----------|
+| Baseline CNN  | 0.7188   | 0.7568   |
+| Deep CNN      | 0.6563   | 0.7755   |
+| MobileNetV2   | 0.9063   | 0.9268   |
+
+MobileNetV2 achieves the highest overall performance.
+
+#### Performance Visuals
+
+Inside the plots/ folder, you will find:
+
+compare_accuracy.png
+
+compare_f1.png
+
+These provide clear model-to-model comparisons.
+
+#### Model Performance Visualization
+
+![Accuracy Comparison Plot](plots/compare_accuracy.png)
+
+![F1 Comparison Plot](plots/compare_f1.png)
 
 
-5. Run the Jupyter Notebook
-   
-   Launch the notebook environment:
-   
-   jupyter notebook
+#### Model Checkpoints
 
-   Run the cells in image_classification_code.ipynb to train and evaluate the model.
+All trained models are available in the saved_models/ directory:
 
+-- baseline_cnn_best.keras
 
-6. Use the Gradio Interfac
-   
-   Run the last cell of the notebook to launch the Gradio web app:
-   
-   - Upload any image for classification.
+-- baseline_cnn_final.keras
 
-   - The system will return the predicted class and confidence score.
+-- deep_cnn_best.keras
 
-   - Supports multiple image uploads for batch testing.
+-- deep_cnn_final.keras
+
+-- mobilenet_best.keras
+
+ -- mobilenet_v2_final.keras
 
 
-## Conclusion
+Example load:
 
-<div align="justify">
-This project delivers a professional and scalable deep learning solution for image classification. By combining CNN architectures, transfer learning via MobileNetV2, and performance metrics such as accuracy, precision, recall, and confusion matrix visualization, the system ensures reliable and interpretable results. The inclusion of a Gradio-based web interface further enhances accessibility, enabling both researchers and end-users to classify images interactively with minimal effort. Overall, this system represents a robust and practical framework for deploying intelligent image classification models in real-world scenarios.
-</div>
+from tensorflow.keras.models import load_model
+model = load_model("saved_models/mobilenet_best.keras")
+
+#### Gradio Interface
+
+1️⃣Run the final cell in the notebook to launch the interface:
+
+demo.launch(share=False)
+
+2️⃣Enable public access with:
+
+demo.launch(share=True)
+
+The interface allows you to upload an image and instantly receive a predicted category.
+
+#### Installation
+
+Install dependencies:
+
+pip install -r requirement.txt
+
+#### Dataset
+
+The dataset origin link is stored inside:
+
+data / Dataset Website Link
+
+#### Planned Updates
+
+- Multi-class expansion
+ 
+- Model deployment (HuggingFace Spaces / Render)
+
+- Add confusion matrices & full evaluation dashboard
+
+- Add data augmentation comparisons
+
+#### Contributing
+
+Contributions are welcome!
