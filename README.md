@@ -121,3 +121,4 @@ data / Dataset Website Link
 #### Contributing
 
 Contributions are welcome!
+If you'd like to improve the project — whether adding new models, optimizing training, improving documentation, or enhancing the UI — feel free to contribute.
